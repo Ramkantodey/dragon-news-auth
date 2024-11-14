@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FaStar, FaEye, FaShareAlt, FaBookmark } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const NewsCard = (props = {}) => {
     const { news } = props || {};
@@ -33,11 +34,13 @@ const NewsCard = (props = {}) => {
             <h3 className="font-bold text-lg mb-2 text-gray-800">{news.title}</h3>
 
             {/* News image section */}
-            <img
-                src={news.image_url}
-                alt="News"
-                className="w-full rounded-md mb-3"
-            />
+            <Link to={`/news/${news._id}`}>
+                <img
+                    src={news.image_url}
+                    alt="News"
+                    className="w-full rounded-md mb-3"
+                />
+            </Link>
 
             {/* News details section with a short preview of the content */}
             <p className="text-gray-600 mb-4">
